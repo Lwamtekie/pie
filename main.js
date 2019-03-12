@@ -63,11 +63,11 @@ const printToDom = (divID, textToPrint) => {
 };
 const pieBuilder = (pies) =>{
 let domString = '';
-    forEach(let i = 0; i < pie.length; i++) {
+    for(let i = 0; i < pies.length; i++) {
         domString += `<div class= "pie-ingredints">`
-        domString += `<h4>${pie[i].name}</h4>`;
-        domString += `<p>${pie[i].bakeTemp}</p>`;
-        domString += `<p>${pie[i].instructor}</p>`;
+        domString += `<h4>${pies[i].name}</h4>`;
+        domString += `<p>${pies[i].bakeTemp}</p>`;
+        domString += `<p>${pies[i].instructor}</p>`;
         domString += `</div>`;
     };
     
@@ -85,7 +85,7 @@ const piename = () => {
     
 
 const init = () => {
-    pieBuilder();
+    pieslength();
     console.log(piename);
 };
-init();
+ init();
