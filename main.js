@@ -98,7 +98,7 @@ const buttonId = e.target.id;
 const buttonEvents = () => {
   document.getElementById('Zoe').addEventListener('click', buttonClick);
   document.getElementById('Saul').addEventListener('click', buttonClick);
-  document.getElementById('Micheal').addEventListener('click', buttonClick);
+  document.getElementById('Michael').addEventListener('click', buttonClick);
   document.getElementById('All').addEventListener('click', buttonClick);
 }
 const piename = () => {
