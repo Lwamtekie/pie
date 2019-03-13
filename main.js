@@ -61,20 +61,46 @@ const printToDom = (divID, textToPrint) => {
  const selectedDiv= document. getElementById(divID)
  selectedDiv.innerHTML = textToPrint;
 };
-const pieBuilder = (pies) =>{
+const pieBuilder = (monkeybutt) =>{
 let domString = '';
-    for(let i = 0; i < pies.length; i++) {
-        domString += `<div class= "pie-ingredints">`
-        domString += `<h4>${pies[i].name}</h4>`;
-        domString += `<p>${pies[i].bakeTemp}</p>`;
-        domString += `<p>${pies[i].instructor}</p>`;
+    for(let i = 0; i < monkeybutt.length; i++) {
+        domString += `<div class= "pie-ingredients">`
+        domString += `<h4>${monkeybutt[i].name}</h4>`;
+        domString += `<p>${monkeybutt[i].bakeTemp}</p>`;
+        domString += `<p>${monkeybutt[i].instructor}</p>`;
         domString += `</div>`;
     };
     
     printToDom('pies', domString);
 };
 
+const buttonClick = (e) => {
 
+const buttonId = e.target.id;
+  // console.log('you clicked a button', e.target .id) 
+  // loop over pies array
+  // if values of instructor key is the same as buttonId  - keep that object
+  // once we have all the pies for that instructor - call pieBuilder
+  const selectedPies = [];
+  pies.forEach((pie) => {
+   if (pie.instructor === buttonId) {
+     selectedPies.push(pie);
+   }
+  });
+
+  if (buttonId === 'All') {
+    pieBuilder(pies);
+  } else {
+    pieBuilder(selectedPies);
+  }
+  };
+  
+const buttonEvents = () => {
+  document.getElementById('Zoe').addEventListener('click', buttonClick);
+  document.getElementById('Saul').addEventListener('click', buttonClick);
+  document.getElementById('Micheal').addEventListener('click', buttonClick);
+  document.getElementById('All').addEventListener('click', buttonClick);
+}
 const piename = () => {
     let domstring = '';
     pies.forEach((pies) => {
@@ -85,7 +111,8 @@ const piename = () => {
     
 
 const init = () => {
-    pieslength();
-    console.log(piename);
+    buttonEvents();
+    pieBuilder(pies);
+  
 };
  init();
